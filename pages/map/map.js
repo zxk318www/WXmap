@@ -81,7 +81,7 @@ Page({
 
     })
     qqmapsdk = new QQMapWX({
-      key: 'WFUBZ-OEVC5-APXIL-QQKAH-7NFZE-3WFYU'
+      key: '你申请的key'
     })
   },
   onShow() {
