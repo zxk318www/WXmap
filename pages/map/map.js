@@ -13,7 +13,8 @@ Page({
     markers: [],
 
     inputShowed: false,
-    inputVal: ""
+    inputVal: "",
+    searchResults: [] //搜索框提示信息
   },
   //事件处理函数
   bindViewTap: function () {
@@ -40,7 +41,7 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-    console.log(e.detail.value)
+    this.inputTips(e.detail.value)
   },
 
   onLoad: function () {
@@ -81,7 +82,7 @@ Page({
 
     })
     qqmapsdk = new QQMapWX({
-      key: '你申请的key'
+      key: 'WFUBZ-OEVC5-APXIL-QQKAH-7NFZE-3WFYU'
     })
   },
   onShow() {
@@ -90,9 +91,10 @@ Page({
     //调用
 
   },
-  search() {
+  search(param) {
+    var that = this
     qqmapsdk.search({
-      keyword: '酒店',
+      keyword: param,
 
       success: function (res) {
         console.log(res);
@@ -119,5 +121,23 @@ Page({
         //console.log(res);
       }
     })
+  },
+  //搜索提示搜索关键字
+  inputTips(param) {
+    var that = this
+
+    qqmapsdk.getSuggestion({
+      keyword: param,
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          searchResults: res.data
+        })
+      }
+    })
+  },
+  clickImg(e){
+    console.log(e.currentTarget.dataset.title);
+    this.search(e.currentTarget.dataset.title);
   }
 })
