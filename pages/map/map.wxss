@@ -46,7 +46,7 @@ page {
 }
 
 .imgView2{
-  margin-left: 140rpx;
+  margin-left: 85rpx;
 }
 .imgView1{
   margin-left: 10rpx;
@@ -55,4 +55,23 @@ page {
 .btnText{
   font-size: 25rpx;
   text-align: center;
+}
+
+.pbImg{
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 30rpx;
+}
+
+.cover{
+  position: relative;
+  
+  margin-top: 400px;
+  margin-left: 360px;
+}
+.coverText{
+  position: relative;
+  
+  
+  margin-left: 300px;
 }
